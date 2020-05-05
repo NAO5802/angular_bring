@@ -1,10 +1,10 @@
 'use strict';
 
-angular.module('angular_bring', [])
-  .controller('itemController', [ '$scope', '$http', function itemController($scope, $http) {
-      
+angular.module('itemList')
+  .component('itemList', {
+    templateUrl: 'item_list/item_list.template.html',
+    controller: function itemController($scope, $http) {
       $scope.addItem = function ( inputItemName ) {
-        
         var itemParams = {};
         itemParams.name = inputItemName;
         
@@ -15,5 +15,6 @@ angular.module('angular_bring', [])
           console.log('エラー');
         });
       };
-      
-    }]);
+    }
+  });
+
