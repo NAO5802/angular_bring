@@ -6,19 +6,23 @@
   <input type="text" class="form-control" placeholder="What would you like to buy?" ng-model="inputItemName" aria-describedby="addon-wrapping">
 </div>
 
-<div class="card text-white bg-info mb-3 text-center" style="max-width: 12rem; max-height: 14rem;" ng-show="inputItemName" ng-click="addItem( inputItemName );">
-  <div class="card-body">
-    <h5 class="card-title" style="min-height: 7em;"></h5>
-    <h5 class="card-title">  {{ inputItemName }} </h5>
-    <!-- <p class="card-text">detail</p> -->
+<div class="card-deck">
+  
+  <div class="card text-white bg-info mb-3 text-center" style="max-width: 12rem; max-height: 14rem;" ng-show="inputItemName" ng-click="addItem( inputItemName );">
+    <div class="card-body">
+      <h5 class="card-title" style="min-height: 7em;"></h5>
+      <h5 class="card-title">  {{ inputItemName }} </h5>
+      <!-- <p class="card-text">detail</p> -->
+    </div>
   </div>
-</div>
 
-<div class="card text-white bg-danger mb-3 text-center" style="max-width: 12rem; max-height: 14rem;">
-  <div class="card-body">
-    <h5 class="card-title" style="min-height: 7em;"></h5>
-    <h5 class="card-title">  追加済アイテム </h5>
-    <!-- <p class="card-text">detail</p> -->
+  <div class="card text-white bg-danger mb-3 text-center" style="max-width: 12rem; max-height: 14rem;" ng-hide="inputItemName" ng-repeat="item in allItems">
+    <div class="card-body">
+      <h5 class="card-title" style="min-height: 7em;"></h5>
+      <h5 class="card-title">  {{ item.name }} </h5>
+      <!-- <p class="card-text">detail</p> -->
+    </div>
   </div>
+
 </div>
 
