@@ -6,8 +6,8 @@ try {
   $db = new PDO(PDO_DSN, DB_USERNAME, DB_PASSWORD);
   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-  // select all items
-  $stmt = $db->query('select * from items');
+  // select all items orderby DESC
+  $stmt = $db->query('SELECT * FROM items ORDER BY insert_datetime DESC');
   $result = $stmt->fetchAll(PDO::FETCH_ASSOC);  // 連想配列で取得
 
 

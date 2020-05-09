@@ -10,7 +10,7 @@ try {
   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
   // insert
-  $stmt = $db->prepare("insert into items (name, insert_datetime, update_datetime) values (:name, :insert_datetime, :update_datetime)");
+  $stmt = $db->prepare("INSERT INTO items (name, insert_datetime, update_datetime) VALUES (:name, :insert_datetime, :update_datetime)");
   $stmt->execute([
     ':name' => $itemName,
     'insert_datetime' => date("Y-m-d H:i:s"),
