@@ -28,7 +28,7 @@
     </div>
   </div>
   
-  <h2 ng-hide="inputItemName">Recently Used</h2>
+  <h2 ng-if="allItems.length > 0" ng-hide="inputItemName">Recently Used</h2>
   <div class="row row-cols-2"  ng-hide="inputItemName"> 
     <div class="card text-white bg-info mb-3 text-center mt-1 mr-1" style="max-width: 12rem; max-height: 14rem;" ng-repeat="item in allItems" ng-if="item.is_archive == 1">
       <div class="card-body" ng-click="changeItemStatus( item );">
@@ -38,6 +38,8 @@
       </div>
     </div>
   </div>
+
+  <h2 class="text-center mt-4" ng-if="allItems.length == 0" ng-hide="inputItemName">Nothing to buy</h2>
 
 </div>
 
