@@ -7,7 +7,7 @@ try {
   $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
   // select all items orderby DESC
-  $stmt = $db->query('SELECT * FROM items ORDER BY insert_datetime DESC');
+  $stmt = $db->query('SELECT * FROM items ORDER BY update_datetime DESC');
   $result = $stmt->fetchAll(PDO::FETCH_ASSOC);  // 連想配列で取得
 
 

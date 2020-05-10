@@ -19,10 +19,11 @@ try {
       $item['is_archive'] = changeFlag( $item['is_archive'] );
 
       // update
-      $stmt = $db->prepare('UPDATE items SET is_archive = :is_archive WHERE id = :id');
+      $stmt = $db->prepare('UPDATE items SET is_archive = :is_archive, update_datetime = :update_datetime WHERE id = :id');
       $stmt->execute([
         ':id' => $item['id'],
-        ':is_archive' => $item['is_archive']
+        ':is_archive' => $item['is_archive'],
+        ':update_datetime' => date("Y-m-d H:i:s")
       ]);
       break;
 

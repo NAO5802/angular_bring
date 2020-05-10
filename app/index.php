@@ -10,8 +10,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular-route.js"></script>
     <script src="app.module.js"></script>
-    <script src="item_list/item_list.module.js"></script>
-    <script src="item_list/item_list.component.js"></script>
+    <script src="component/items/item_list/item_list.module.js"></script>
+    <script src="component/items/item_list/item_list.component.js"></script>
   </head>
   <body>
 

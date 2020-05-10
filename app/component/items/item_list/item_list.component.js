@@ -2,8 +2,8 @@
 
 angular.module('itemList')
   .component('itemList', {
-    templateUrl: 'item_list/item_list.template.html',
-    controller: function itemController($scope, $http) {
+    templateUrl: 'component/items/item_list/item_list.template.php',
+    controller: function itemListController($scope, $http) {
 
       $scope.init = function() {
         $scope.getAllItems();
@@ -27,7 +27,7 @@ angular.module('itemList')
           console.log('addItemエラー');
         });
         $scope.inputItemName = '';
-        $scope.init();
+        $scope.getAllItems();
       };
 
       $scope.changeItemStatus = function ( item ) {
@@ -40,6 +40,7 @@ angular.module('itemList')
         }).catch(function onError() {
           console.log('archiveエラー');
         });
+        $scope.getAllItems();
       };
 
       // itemController読み込み時に実行
