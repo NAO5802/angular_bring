@@ -11,7 +11,7 @@ angular.module('itemList')
 
       $scope.getAllItems = function() {
         $scope.allItems = {};
-        $http.get('api/items/index.php').then(function onSuccess( result ) {
+        $http.get('api/items/read.php').then(function onSuccess( result ) {
           $scope.allItems = result.data;
         }).catch(function onError() {
           console.log('items取得エラー');
@@ -21,15 +21,25 @@ angular.module('itemList')
       $scope.addItem = function ( inputItemName ) {
         var itemParams = {};
         itemParams.name = inputItemName;
-        
-        $http.post('api/items/update.php', itemParams).then(function onSuccess() {
+        $http.post('api/items/create.php', itemParams).then(function onSuccess() {
           console.log('addItem成功');
         }).catch(function onError() {
           console.log('addItemエラー');
         });
-
         $scope.inputItemName = '';
         $scope.init();
+      };
+
+      $scope.changeItemStatus = function ( item ) {
+        var itemParams = {};
+        itemParams.item = item;
+        itemParams.updateKind = 'changeItemStatus';
+
+        $http.put('api/items/update.php', itemParams).then(function onSuccess() {
+          console.log('archive成功');
+        }).catch(function onError() {
+          console.log('archiveエラー');
+        });
       };
 
       // itemController読み込み時に実行
